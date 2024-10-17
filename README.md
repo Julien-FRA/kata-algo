@@ -1,2 +1,3 @@
 # kata-algo
-Kata algo en Typescript
+Kata d'algo en Typescript.
+Ref des algo: https://leetcode.com/
