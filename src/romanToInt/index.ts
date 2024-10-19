@@ -1,7 +1,17 @@
-const romanToInt = (s: string): number => {
+type Numbers = {
+  V: number;
+  I: number;
+  X: number;
+  L: number;
+  C: number;
+  D: number;
+  M: number;
+};
+
+export const romanToInt = (s: string): number => {
   let result: number = 0;
 
-  const numbers = {
+  const numbers: Numbers | any = {
     I: 1,
     V: 5,
     X: 10,
@@ -12,8 +22,8 @@ const romanToInt = (s: string): number => {
   };
 
   for (let i = 0; i < s.length; i++) {
-    const current = numbers[s[i]];
-    const next = numbers[s[i + 1]];
+    const current: number = numbers[s[i]];
+    const next: number = numbers[s[i + 1]];
 
     if (current < next) {
       result += next - current;
