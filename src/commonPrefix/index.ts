@@ -1,23 +1,27 @@
 export const longestCommonPrefix = (strs: string[]): string => {
-  let common: string = "";
+  if (strs.length === 0) return "";
 
-  for (let i = 0; i < strs.length; i++) {
-    let currentWord = strs[i];
-    let nextWord = strs[i + 1];
-    if (nextWord) {
-      for (let j = 0; j < currentWord.length && j < nextWord.length; j++) {
-        if (currentWord[j] && nextWord[j]) {
-          console.log("current Word", currentWord[j]);
+  let prefix: string = strs[0];
 
-          console.log("next Word", nextWord[j]);
+  for (let i = 1; i < strs.length; i++) {
+    let nextWord: string = strs[i];
 
-          if (currentWord[j] == nextWord[j]) {
-            common += currentWord[j];
-          }
-        }
-      }
+    let j = 0;
+    // Nombre de caractères en commun, on incrémente j.
+    while (
+      j < prefix.length &&
+      j < nextWord.length &&
+      prefix[j] === nextWord[j]
+    ) {
+      j++;
     }
+
+    // On garde le nombre de caractères en commun.
+    prefix = prefix.substring(0, j);
+
+    // Si aucun caractères en commun, on retorune une chaine de caractère vide.
+    if (prefix === "") return "";
   }
 
-  return common;
+  return prefix;
 };
